@@ -53,7 +53,7 @@ export class Plugins {
         upload (url: string, image: string, onSuccess: any, onFailed: any, onProgress: any) : void {
             var ft = new FileTransfer();                       
             var options = new FileUploadOptions();
-            var filename = _.uniqueId();
+            var filename = _.uniqueId() + ".jpg";
             
             options.fileKey = "file";
             options.fileName = filename;
