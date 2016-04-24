@@ -21,3 +21,4 @@ A FileTransfer (upload) example build with Ionic v2 and typscript
 
 ## Remarks
 - This example will only work when deployed on a emulator or device. This because cordova will not work in the browser.
+- I know there is jquery there and it really shouldn't be there. But since the file transfer plugin is not yet ionic native I had to use for updating the dom elements with the uploading progress.
