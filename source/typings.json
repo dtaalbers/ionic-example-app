@@ -1,0 +1,12 @@
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "cordova": "registry:dt/cordova#0.0.0+20160316155526",
+    "cordova/plugins/filesystem": "registry:dt/cordova/plugins/filesystem#0.0.0+20160316155526",
+    "cordova/plugins/filetransfer": "registry:dt/cordova/plugins/filetransfer#0.0.0+20160329171220",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
+    "jquery": "registry:dt/jquery#1.10.0+20160417213236",
+    "underscore": "registry:dt/underscore#1.7.0+20160412141459"
+  }
+}
