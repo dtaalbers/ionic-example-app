@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.filetransferexample106519" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>FileTransferExample</name>
-    <description>An Ionic Framework and Cordova project.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>A FileTransfer (upload) example build with Ionic v2 and typescript</description>
+    <author email="dtaalbers@gmail.com" href="http://dtaalbers.com/">Tom Aalbers</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
