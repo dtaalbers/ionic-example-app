@@ -1,5 +1,5 @@
 # FileTransfer Upload Example
-A FileTransfer Upload example build with Ionic v2 and typscript. The API called from this example is not online anymore, so you have to change the API URL [here](https://github.com/dtaalbers/FileTransferExample/blob/master/source/app/pages/uploading/uploading.ts#L88) in order to make the example fully functional. Otherwise it will give an error when actually uploading your images.
+A FileTransfer Upload example build with Ionic v2 and typscript. The API called from this example is not online anymore, so you have to change the API URL [here](https://github.com/dtaalbers/ionic-2-examples/blob/master/file-transfer-upload/app/pages/uploading/uploading.ts#L85) in order to make the example fully functional. Otherwise it will give an error when actually uploading your images.
 
 ## Prerequisites
 - Have ionic CLI version 2.0.0-beta.25 installed `npm install -g ionic@beta`
