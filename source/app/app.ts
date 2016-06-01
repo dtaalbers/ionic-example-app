@@ -2,7 +2,7 @@ import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {Home} from './pages/home/home';
 import {Plugins} from './services/plugins.service';
-import {Type} from 'angular2/core';
+import {Type} from '@angular/core';
 
 
 @App({

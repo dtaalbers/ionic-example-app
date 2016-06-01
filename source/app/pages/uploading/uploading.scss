@@ -4,46 +4,6 @@
     color: white;    
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     
-    #done {
-       display: none;   
-    }   
-    
-    #svg circle {
-        stroke-dashoffset: 0;
-        transition: stroke-dashoffset 0.3s linear;
-        stroke: #666;
-        stroke-width: 1.3em;
-    }
-    
-    #svg #bar {
-        stroke: #48BAE6;        
-	   stroke-dashoffset: 566;
-    }
-    
-    #cont {
-        display: block;
-        height: 200px;
-        width: 200px;
-        margin: 2em auto;
-        border-radius: 100%;
-        position: relative;
-    }
-    
-    #cont:after {
-        position: absolute;
-        display: block;
-        height: 160px;
-        width: 160px;
-        left: 50%;
-        top: 50%;
-        content: attr(data-pct)"%";
-        margin-top: -80px;
-        margin-left: -80px;
-        border-radius: 100%;
-        line-height: 160px;
-        font-size: 2.5em;
-    }
-    
     .info {        
           text-align: center;
     }

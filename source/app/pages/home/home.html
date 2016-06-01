@@ -3,7 +3,7 @@
 </ion-navbar>
 
 <ion-content padding class="home">
-    Select / Make some images
+    Select / Take some pictures
     <br>
     <button dark (click)="openCamera()">                
         Open camera
@@ -18,19 +18,19 @@
     </button>
     
       <div class="items">
-        <div *ngFor="#item of images; #i = index">
+        <div *ngFor="let item of images; let i = index">
             <ion-row center  *ngIf="i % 4 === 0" > 
                 <ion-col width-25 *ngIf="i < images.length">
-                    <div class="image" style="background-image: url('{{images[i]}}')"></div>
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + images[i] + ')'}"></div>
                 </ion-col>
                 <ion-col width-25 *ngIf="i + 1 < images.length">
-                    <div class="image" style="background-image: url('{{images[i + 1]}}')"></div>
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + images[i + 1] + ')'}"></div>
                 </ion-col>
                 <ion-col width-25 *ngIf="i + 2 < images.length">
-                    <div class="image" style="background-image: url('{{images[i + 2]}}')"></div>
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + images[i + 2] + ')'}"></div>
                 </ion-col>
                 <ion-col width-25 *ngIf="i + 3 < images.length">
-                    <div class="image" style="background-image: url('{{images[i + 3]}}')"></div>
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + images[i + 3] + ')'}"></div>
                 </ion-col>
             </ion-row>
         </div>
