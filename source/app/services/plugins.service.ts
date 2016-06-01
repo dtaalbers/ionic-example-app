@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Camera, ImagePicker} from 'ionic-native';
 import * as _ from 'underscore';
 

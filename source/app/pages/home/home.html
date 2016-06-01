@@ -18,7 +18,7 @@
     </button>
     
       <div class="items">
-        <div *ngFor="#item of images; #i = index">
+        <div *ngFor="let item of images; #i = index">
             <ion-row center  *ngIf="i % 4 === 0" > 
                 <ion-col width-25 *ngIf="i < images.length">
                     <div class="image" style="background-image: url('{{images[i]}}')"></div>
