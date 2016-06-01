@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Camera, ImagePicker, Transfer} from 'ionic-native';
+import {Camera, ImagePicker} from 'ionic-native';
 import * as _ from 'underscore';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class Plugins {
                 if(err.error == "cordova_not_available") {               
                     alert("Cordova is not available, please make sure you have your app deployed on a simulator or device");                                   
                 } else {                
-                    alert("Failed to open albums: " + err.error);
+                    console.log("Failed to open albums: " + err.error);
                 }
             });
         },         
@@ -26,7 +26,7 @@ export class Plugins {
     
     camera = {       
         open () : Promise<any>  {
-            var options = {
+            let options = {
                 destinationType: 1,
                 sourceType: 1,
                 encodingType: 0,
@@ -41,7 +41,7 @@ export class Plugins {
                 if(err.error == "cordova_not_available") {
                     alert("Cordova is not available, please make sure you have your app deployed on a simulator or device");            
                 } else {
-                    alert("Failed to open camera: " + err.error);                
+                    console.log("Failed to open camera: " + err.error);                
                 }    
             });
         } 
