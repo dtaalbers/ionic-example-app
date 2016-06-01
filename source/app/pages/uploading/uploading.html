@@ -1,9 +1,9 @@
 <ion-content class="uploading" id="uploading">     
     <progress value="{{progress}}" max="100"></progress>
-    <span>Progress: {{progress}}</span>
+    <span>Progress: {{progress}}%</span>
     <div class="info">  
         <h3>Image {{current}} from {{total}}</h3>
-        <div hidden="uploading"class="buttons">
+        <div [hidden]="uploading"class="buttons">
             <button id="done" btn (click)="done()" class="upload-button">
                 Back to home
             </button>

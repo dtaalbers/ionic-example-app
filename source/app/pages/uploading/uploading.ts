@@ -42,10 +42,8 @@ export class UploadingPage {
     }
     
     success = (result: any) : void => { 
-        if(this.current != this.total){
+        if(this.current < this.total) {             
             this.current++;
-        }
-        if(this.current <= this.total) { 
             this.progress = 0;                    
             this.upload(this.images[this.current - 1]);
         } else {   
