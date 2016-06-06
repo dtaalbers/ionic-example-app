@@ -1,0 +1,21 @@
+<ion-navbar *navbar>
+  <ion-title>Home</ion-title>
+</ion-navbar>
+
+<ion-content padding class="home">
+    Download example
+    <br><br>
+    <input class="url" [(ngModel)]="url">
+    <br><br>
+    <button dark (click)="download()">                
+        Start downloading 
+    </button>
+    <br><br>
+    <div>
+        <ion-label>Image saved to: </ion-label><span>{{savedTo}}</span>
+        <br>
+        <div *ngIf="showImage">
+            <div class="image" [ngStyle]="{'background-image': 'url(' + savedTo + ')'}"></div>
+        </div>
+    </div>
+</ion-content>
