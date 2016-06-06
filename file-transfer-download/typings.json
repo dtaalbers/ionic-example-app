@@ -1,0 +1,11 @@
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
+  },
+  "globalDependencies": {
+    "cordova": "registry:dt/cordova#0.0.0+20160510234918",
+    "cordova/plugins/filesystem": "registry:dt/cordova/plugins/filesystem#0.0.0+20160316155526"
+  }
+}
