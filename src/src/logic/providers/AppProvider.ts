@@ -1,9 +1,14 @@
 import { ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
 
+import { PluginService } from '../../services/PluginService';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { Camera } from '@ionic-native/camera';
+
+import { CameraMock } from '../mocks/CameraMock';
 
 export class AppProvider {
 
@@ -22,7 +27,9 @@ export class AppProvider {
                 StatusBar,
                 SplashScreen,
                 InAppBrowser,
-                { provide: ErrorHandler, useClass: IonicErrorHandler }
+                { provide: Camera, useClass: CameraMock },
+                PluginService,
+                { provide: ErrorHandler, useClass: IonicErrorHandler },
             ];
         } else {
             // We are now working the app on a device. We can use the cordova 
@@ -31,6 +38,8 @@ export class AppProvider {
                 StatusBar,
                 SplashScreen,
                 InAppBrowser,
+                Camera,
+                PluginService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }
             ];
         }

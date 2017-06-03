@@ -1,20 +1,19 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { AppProvider } from '../logic/providers/AppProvider';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { AppProvider } from '../logic/providers/AppProvider';
+import { CameraPage } from '../pages/camera/camera';
 
 @NgModule({
   declarations: [
     MyApp,    
     HomePage,
-    TabsPage
+    TabsPage,
+    CameraPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,8 @@ import { AppProvider } from '../logic/providers/AppProvider';
   entryComponents: [
     MyApp,    
     HomePage,
-    TabsPage
+    TabsPage,
+    CameraPage
   ],
   // We are using the custom written prodvider
   // here instead of the array that is normally
