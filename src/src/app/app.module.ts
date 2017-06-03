@@ -8,11 +8,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppProvider } from '../logic/providers/AppProvider';
 
 @NgModule({
   declarations: [
-    MyApp,
-    
+    MyApp,    
     HomePage,
     TabsPage
   ],
@@ -26,10 +26,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  // We are using the custom written prodvider
+  // here instead of the array that is normally
+  // added here
+  providers: AppProvider.get_providers()
 })
 export class AppModule {}
