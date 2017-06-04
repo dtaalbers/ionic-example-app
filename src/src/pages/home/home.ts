@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { AppConfiguration } from '../../logic/AppConfiguration';
+import { AppConfiguration } from '../../application/AppConfiguration';
 
 @Component({
     selector: 'page-home',

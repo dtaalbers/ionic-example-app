@@ -2,15 +2,19 @@ import { ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
 
 import { PluginService } from '../../services/PluginService';
+import { NotificationService } from '../../services/NotificationService';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Insomnia } from '@ionic-native/insomnia';
+import { Transfer } from '@ionic-native/transfer';
 
 import { CameraMock } from '../mocks/CameraMock';
 import { ImagePickerMock } from '../mocks/ImagePickerMock';
+
 
 export class AppProvider {
 
@@ -29,9 +33,12 @@ export class AppProvider {
                 StatusBar,
                 SplashScreen,
                 InAppBrowser,
+                Insomnia,
+                Transfer,
                 { provide: Camera, useClass: CameraMock },
                 { provide: ImagePicker, useClass: ImagePickerMock },
                 PluginService,
+                NotificationService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler },
             ];
         } else {
@@ -41,9 +48,12 @@ export class AppProvider {
                 StatusBar,
                 SplashScreen,
                 InAppBrowser,
+                Insomnia,
+                Transfer,
                 Camera,
                 ImagePicker,
                 PluginService,
+                NotificationService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }
             ];
         }

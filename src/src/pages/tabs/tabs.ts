@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { CameraPage } from '../camera/camera';
 import { ImagePickerPage } from '../image-picker/image-picker';
+import { UploadExamplePage } from '../upload-example/upload-example';
 
 @Component({
     templateUrl: 'tabs.html'
@@ -19,4 +20,8 @@ export class TabsPage {
      * The third page is the image picker example page
      */
     tab3Root = ImagePickerPage;
+    /**
+     * The fourth page is the upload example page
+     */
+    tab4Root = UploadExamplePage;
 }

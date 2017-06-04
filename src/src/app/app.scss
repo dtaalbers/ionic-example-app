@@ -18,3 +18,27 @@
 ion-content {
     color: #3c3838 !important;
 }
+
+.toast-info {    
+  .toast-wrapper {
+      background: color($colors, info, base);
+  }
+}
+
+.toast-warning {      
+  .toast-wrapper {
+      background: color($colors, warning, base);
+  }
+}
+
+.toast-danger {      
+  .toast-wrapper {
+      background: color($colors, danger, base);
+  }
+}
+
+.toast-success {      
+  .toast-wrapper {
+      background: color($colors, success, base);
+  }
+}

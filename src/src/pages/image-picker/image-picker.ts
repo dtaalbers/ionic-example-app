@@ -17,7 +17,7 @@ export class ImagePickerPage {
     ) { }
 
     /**
-     * Opens the albums and display the selected image if available
+     * Opens the albums and displays the selected images if available
      */
     public async open_albums(): Promise<void> {
         this.images = this.images.concat(await this.plugin_service.open_albums());

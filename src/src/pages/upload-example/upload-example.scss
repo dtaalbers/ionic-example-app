@@ -1,16 +1,13 @@
-page-image-picker {
-
-    #image-picker-header {
-        .toolbar {
-            .toolbar-title {
-                overflow: visible;
-            }        
-        }
-    }
-
-    #image-picker-content {
+upload-example {
+    #upload-example-content {
         .scroll-content {
             padding: 15px;
+        }
+
+        .upload-info {
+            span {
+                margin-left: 10px;
+            }
         }
         
         .image {
@@ -22,8 +19,13 @@ page-image-picker {
         }
 
         button {
-            width: 100%;
-            margin-top: 10px;
+            width: 100% !important; 
+            font-size: 12pt;
+            border-radius: 0;
+
+            ion-icon {
+                margin-right: 10px;
+            }
         }
     }
 }
