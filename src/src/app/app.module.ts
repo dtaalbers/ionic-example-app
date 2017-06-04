@@ -7,13 +7,15 @@ import { AppProvider } from '../logic/providers/AppProvider';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CameraPage } from '../pages/camera/camera';
+import { ImagePickerPage } from '../pages/image-picker/image-picker';
 
 @NgModule({
   declarations: [
     MyApp,    
     HomePage,
     TabsPage,
-    CameraPage
+    CameraPage,
+    ImagePickerPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { CameraPage } from '../pages/camera/camera';
     MyApp,    
     HomePage,
     TabsPage,
-    CameraPage
+    CameraPage,
+    ImagePickerPage
   ],
   // We are using the custom written prodvider
   // here instead of the array that is normally

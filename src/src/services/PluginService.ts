@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 /**
  * This is the plugin service. Following the DRY approach I've created
@@ -10,7 +11,8 @@ import { Camera } from '@ionic-native/camera';
 export class PluginService {
 
     constructor(
-        private camera: Camera
+        private camera: Camera,
+        private image_picker: ImagePicker
     ) { }
 
     /**
@@ -33,6 +35,17 @@ export class PluginService {
             saveToPhotoAlbum: true,
             // Correct the orrientation of the image
             correctOrientation: true
+        });
+    }
+
+    /**
+     * Opens the albums
+     * @return A collection of urls from the selected images
+     */
+    public open_albums(): Promise<Array<string>> {
+        return this.image_picker.getPictures({
+            quality: 100,
+            maximumImagesCount: 15,
         });
     }
 }

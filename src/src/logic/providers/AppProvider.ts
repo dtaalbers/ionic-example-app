@@ -7,8 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 import { CameraMock } from '../mocks/CameraMock';
+import { ImagePickerMock } from '../mocks/ImagePickerMock';
 
 export class AppProvider {
 
@@ -28,6 +30,7 @@ export class AppProvider {
                 SplashScreen,
                 InAppBrowser,
                 { provide: Camera, useClass: CameraMock },
+                { provide: ImagePicker, useClass: ImagePickerMock },
                 PluginService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler },
             ];
@@ -39,6 +42,7 @@ export class AppProvider {
                 SplashScreen,
                 InAppBrowser,
                 Camera,
+                ImagePicker,
                 PluginService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }
             ];
