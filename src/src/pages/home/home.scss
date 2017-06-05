@@ -12,5 +12,12 @@ page-home {
         p {
             margin: 0px 0;
         }
+
+        .logo {
+            height: 100px;
+            background-image: url('/assets/images/logo.png');
+            background-size: cover;
+            background-position: center center;
+        }
     }
 }

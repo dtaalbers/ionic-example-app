@@ -23,5 +23,13 @@ export class HomePage {
         let iab = this.in_app_browser.create(AppConfiguration.app_issues_github_page, '_blank');
         iab.show();
     }
+    
+    /**
+     * Opens the developer site
+     */
+    public open_develop_site(): void {
+        let iab = this.in_app_browser.create(AppConfiguration.developer_site, '_blank');
+        iab.show();
+    }
 }
 
