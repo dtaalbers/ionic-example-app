@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿﻿using dtaalbers.Ionic.Api.Application;
+ using dtaalbers.Ionic.Api.Application.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
@@ -25,8 +27,12 @@ namespace dtaalbers.Ionic.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+
+            // Inject our dependencies
+            DependencyInjection.Inject(services, Configuration);
+
             services.AddMvc()
-                // We only accept snake case json
+                // We only accept snake cased json
                 .AddJsonOptions(x =>
                 {
                     x.SerializerSettings.ContractResolver = new DefaultContractResolver
@@ -49,7 +55,15 @@ namespace dtaalbers.Ionic.Api
             
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            // Enable custom request interceptor
+            // it will intercept every request made to the api
+            app.UseRequestInterceptor();
+
             app.UseMvc();
+            
+            // Register logger
+            Logger.Register("api", Configuration["ApiSettings:LogsPath"]);
         }
     }
 }
