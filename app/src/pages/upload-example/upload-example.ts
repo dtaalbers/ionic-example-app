@@ -51,8 +51,7 @@ export class UploadExamplePage {
         private notification_service: NotificationService,
         private transfer: Transfer,
         private image_resizer: ImageResizer,
-        private dialog_service: DialogService,
-        private loading_controller: LoadingController
+        private dialog_service: DialogService
     ) { }
 
     /**
@@ -60,9 +59,6 @@ export class UploadExamplePage {
      */
     public async open_albums(): Promise<void> {
         let originals = await this.plugin_service.open_albums();
-        // Show a loader
-        let loader = this.loading_controller.create();
-        loader.present();
         // Map the originals to an array of UploadImage
         let requests = await originals.map(async x => new UploadImage({
             path: x,
@@ -72,8 +68,6 @@ export class UploadExamplePage {
         let images = await Promise.all(requests);
         // Save the originals
         this.images = this.images.concat(images);
-        // Done! Hide the loader
-        loader.dismiss();
     }
 
     /**
@@ -81,16 +75,11 @@ export class UploadExamplePage {
      */
     public async open_camera(): Promise<void> {
         let orignal = await this.plugin_service.open_camera();
-        // Show loader and save original
-        let loader = this.loading_controller.create();
-        loader.present();
         this.images.push(new UploadImage({
             path: orignal,
             guid: Helper.guid(),
             thumb: await this.resize(orignal)
         }));
-        // Done! Hide the loader
-        loader.dismiss();
     }
 
     /**
