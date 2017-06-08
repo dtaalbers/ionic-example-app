@@ -33,26 +33,23 @@ namespace dtaalbers.Ionic.Api.Application
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="function">The function the message is being logged from</param>
-        /// <param name="obj">A anonymous object that will be serialized and logged</param>
-        public static void Information(string message, string function, object obj = null)
-            => Log.Information($"[ionicapi.{Application}/{function}] {message} ");
+        public static void Information(string message, string function)
+            => Log.Information($"[dtaalbers.Ionic.{Application}/{function}] {message} ");
 
         /// <summary>
         /// Log an error message
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="function">The function the message is being logged from</param>
-        /// <param name="obj">A anonymous object that will be serialized and logged</param>
-        public static void Error(string message, string function, object obj = null)
-            => Log.Error($"[ionicapi.{Application}/{function}] {message} ");
+        public static void Error(string message, string function)
+            => Log.Error($"[dtaalbers.Ionic.{Application}/{function}] {message} ");
 
         /// <summary>
         /// Log a debug message
         /// </summary>
         /// <param name="message">The message to log</param>
         /// <param name="function">The function the message is being logged from</param>
-        /// <param name="obj">A anonymous object that will be serialized and logged</param>
-        public static void Debug(string message, string function, object obj = null)
-            => Log.Debug($"[ionicapi.{Application}/{function}] {message} ");
+        public static void Debug(string message, string function)
+            => Log.Debug($"[dtaalbers.Ionic.{Application}/{function}] {message} ");
     }
 }

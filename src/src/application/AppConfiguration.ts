@@ -10,5 +10,5 @@ export class AppConfiguration {
     /**
      * The base url endpoint of the api
      */
-    public static base_url: string = 'https://api.dtaalbers.com/ionic-example-app';
+    public static base_url: string = 'https://api.dtaalbers.com/ionic-example-app/';
 }

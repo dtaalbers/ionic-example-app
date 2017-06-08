@@ -2,8 +2,13 @@ import { Component, NgZone } from '@angular/core';
 import { PluginService } from '../../services/PluginService';
 import { Insomnia } from '@ionic-native/insomnia';
 import { NotificationService } from '../../services/NotificationService';
-import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { Transfer, TransferObject, FileUploadResult } from '@ionic-native/transfer';
 import { AppConfiguration } from '../../application/AppConfiguration';
+import { ImageResizer, ImageResizerOptions } from '@ionic-native/image-resizer';
+import { UploadImage } from '../../models/UploadImage';
+import { Helper } from "../../application/Helper";
+import { DialogService } from '../../services/DialogService';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
     selector: 'upload-example',
@@ -11,9 +16,9 @@ import { AppConfiguration } from '../../application/AppConfiguration';
 })
 export class UploadExamplePage {
     /**
-     * The urls of the selected images
+     * The selected images
      */
-    public images: Array<string> = [];
+    public images: Array<UploadImage> = [];
     /**
      * A flag that indicates whether the app is uploading files or not
      */
@@ -29,32 +34,88 @@ export class UploadExamplePage {
     /**
      * Amount of progress made during an image upload
      */
-    public progress: number = 20;
+    public progress: number = 0;
     /**
      * The transfer object
      */
     private file_transfer: TransferObject = this.transfer.create();
+    /**
+     * A collection of upload responses
+     */
+    public upload_responses: any = [];
 
     constructor(
         private plugin_service: PluginService,
         private ng_zone: NgZone,
         private insomnia: Insomnia,
         private notification_service: NotificationService,
-        private transfer: Transfer
+        private transfer: Transfer,
+        private image_resizer: ImageResizer,
+        private dialog_service: DialogService,
+        private loading_controller: LoadingController
     ) { }
 
     /**
      * Opens the albums and displays the selected images if available
      */
     public async open_albums(): Promise<void> {
-        this.images = this.images.concat(await this.plugin_service.open_albums());
+        let originals = await this.plugin_service.open_albums();
+        // Show a loader
+        let loader = this.loading_controller.create();
+        loader.present();
+        // Map the originals to an array of UploadImage
+        let requests = await originals.map(async x => new UploadImage({
+            path: x,
+            guid: Helper.guid(),
+            thumb: await this.resize(x)
+        }));
+        let images = await Promise.all(requests);
+        // Save the originals
+        this.images = this.images.concat(images);
+        // Done! Hide the loader
+        loader.dismiss();
     }
 
     /**
      * Opens the camera and displays the picture if available
      */
     public async open_camera(): Promise<void> {
-        this.images.push(await this.plugin_service.open_camera());
+        let orignal = await this.plugin_service.open_camera();
+        // Show loader and save original
+        let loader = this.loading_controller.create();
+        loader.present();
+        this.images.push(new UploadImage({
+            path: orignal,
+            guid: Helper.guid(),
+            thumb: await this.resize(orignal)
+        }));
+        // Done! Hide the loader
+        loader.dismiss();
+    }
+
+    /**
+     * Resizes an image
+     * @param original The path to the original image
+     */
+    private async resize(original: string): Promise<string> {
+        let options = {
+            uri: original,
+            folderName: 'Protonet',
+            quality: 90,
+            width: 1280,
+            height: 1280
+        } as ImageResizerOptions;
+        return this.image_resizer.resize(options);
+    }
+
+    /**
+     * Deletes a image
+     * @param image The images to dlete
+     */
+    private delete(image: UploadImage): void {
+        this.dialog_service.confirm_delete('Are you sure you want to delete this image?', confirmed => {
+            if (confirmed) this.images = this.images.filter(x => x.guid != image.guid);
+        });
     }
 
     /**
@@ -91,11 +152,23 @@ export class UploadExamplePage {
     public async upload(): Promise<void> {
         // Bind the progress function
         this.file_transfer.onProgress(this.on_progress);
-        // Start uploading!
+        // Prepare our upload options
+        let options = {
+            fileKey: 'file',
+            fileName: this.images[this.current].path.split('/').pop(),
+            mimeType: 'image/jpeg',
+            chunkedMode: false,
+            headers: {
+                'Content-Type': undefined
+            },
+            params: {}
+        };
         try {
+            // Start uploading!
             let result = await this.file_transfer.upload(
-                encodeURI(this.images[this.current]),
+                encodeURI(this.images[this.current].path),
                 encodeURI(AppConfiguration.base_url + 'media/'),
+                options,
                 false
             );
             this.on_success(result);
@@ -108,11 +181,15 @@ export class UploadExamplePage {
      * The on success upload callback 
      * @param result The upload result
      */
-    public on_success = (result: any): void => {
+    public on_success = (result: FileUploadResult): void => {
+        // Mark the image as uploaded 
+        this.images[this.current].uploaded = true;
         // Do we have more to upload?
         if (this.current + 1 < this.images.length) {
             // Yes, we have. Up the current index 
             this.current++;
+            // reset the progress
+            this.progress = 0;
             // and start the upload
             this.upload();
         } else {
@@ -120,6 +197,10 @@ export class UploadExamplePage {
             // This is important, because if you don't allow sleep again
             // in any case, apple wont accept your app in the store.
             this.insomnia.allowSleepAgain();
+            this.is_uploading = false;
+            this.images = [];
+            this.current = 0;
+            this.notification_service.notify_success('Succesfully uploaded your images');
         }
     }
 

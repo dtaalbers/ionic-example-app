@@ -15,7 +15,7 @@ export class NotificationService {
     /**
      * The close toast button text
      */
-    private toast_close_text: string = 'Sluiten';
+    private toast_close_text: string = 'Close';
     /**
      * A flag that decides whether to show the toast close button
      */
@@ -30,8 +30,9 @@ export class NotificationService {
      * @param message The error that occurred
      */
     public notify_error(error: any, details?: string): void {
+        console.log(error, details);
         let toast = this.toast_controller.create({
-            message: 'Oops... er ging helaas iets fout. Misschien kan je het later nog een keer proberen?',
+            message: 'Something went wrong. Try again later',
             duration: this.time_show_time,
             position: this.toast_position,
             showCloseButton: this.show_toast_close_button,

@@ -39,18 +39,7 @@ namespace dtaalbers.Ionic.Api.Controllers
             using (var stream = new FileStream(orignal, FileMode.Create))
                 await media.File.CopyToAsync(stream);
             
-            // Read the just saved file
-            var bytes = System.IO.File.ReadAllBytes(orignal);
-            
-            // Set the content type according the images type
-            var contentType = $"image/{Path.GetExtension(media.File.FileName).Replace(".", "")}";
-            HttpContext.Response.ContentType = contentType;
-            
-            // Return the image
-            return new FileContentResult(bytes, contentType)
-            {
-                FileDownloadName = $"{Path.GetFileName(orignal)}"
-            };
+            return Ok();
         }
     }
 }

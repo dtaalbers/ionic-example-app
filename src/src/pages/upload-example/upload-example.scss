@@ -14,8 +14,31 @@ upload-example {
             height: 100px;                  
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center center;   
-            margin-top: 20px;
+            background-position: center center;
+        }
+
+        .uploaded {
+            opacity: .2;
+        }
+
+        .check {
+            position: absolute;
+            font-size: 30pt;
+            font-weight: bold;
+            left: calc(50% - 15px);
+            top: calc(50% - 10px);
+        }
+
+        .image-col {
+            button {
+                width: 100% !important;
+                height: 20px !important;
+                margin: 0;
+
+                ion-icon {
+                    margin: 0;
+                }
+            }
         }
 
         button {

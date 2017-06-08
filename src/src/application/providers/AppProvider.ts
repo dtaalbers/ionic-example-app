@@ -11,10 +11,12 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Insomnia } from '@ionic-native/insomnia';
 import { Transfer } from '@ionic-native/transfer';
+import { ImageResizer } from '@ionic-native/image-resizer';
 
 import { CameraMock } from '../mocks/CameraMock';
 import { ImagePickerMock } from '../mocks/ImagePickerMock';
-
+import { ImageResizerMock } from '../mocks/ImageResizerMock';
+import { DialogService } from '../../services/DialogService';
 
 export class AppProvider {
 
@@ -35,10 +37,12 @@ export class AppProvider {
                 InAppBrowser,
                 Insomnia,
                 Transfer,
+                { provide: ImageResizer, useClass: ImageResizerMock },
                 { provide: Camera, useClass: CameraMock },
                 { provide: ImagePicker, useClass: ImagePickerMock },
                 PluginService,
                 NotificationService,
+                DialogService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler },
             ];
         } else {
@@ -50,10 +54,12 @@ export class AppProvider {
                 InAppBrowser,
                 Insomnia,
                 Transfer,
+                ImageResizer,
                 Camera,
                 ImagePicker,
                 PluginService,
                 NotificationService,
+                DialogService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }
             ];
         }

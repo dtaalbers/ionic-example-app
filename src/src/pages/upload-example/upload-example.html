@@ -2,7 +2,7 @@
     <ion-navbar color="primary">
         <ion-title>Upload Example</ion-title>
         <ion-buttons right *ngIf="images.length > 0" (tap)="start_upload()">
-            <button ion-button>
+            <button ion-button [disabled]="is_uploading">
                 Upload
             </button>
         </ion-buttons>
@@ -35,8 +35,12 @@
     </ion-grid>
     <ion-grid *ngIf="images.length > 0">
         <ion-row>
-            <ion-col *ngFor="let image of images" col-3>
-                <div class="image" [ngStyle]="{'background-image': 'url(' + image  + ')'}"></div>
+            <ion-col *ngFor="let image of images" class="image-col" col-3>
+                <button [disabled]="is_uploading" ion-button (tap)="delete(image)">
+                    <ion-icon name="close"></ion-icon>
+                </button>                
+                <ion-icon class="check" *ngIf="image.uploaded" name="checkmark"></ion-icon>
+                <div class="image" [class.uploaded]="image.uploaded" [ngStyle]="{'background-image': 'url(' + image.thumb  + ')'}"></div>
             </ion-col>
         </ion-row>
     </ion-grid>

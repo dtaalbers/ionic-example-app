@@ -23,6 +23,7 @@
     "@ionic-native/camera": "^3.11.0",
     "@ionic-native/core": "3.10.2",
     "@ionic-native/image-picker": "^3.11.0",
+    "@ionic-native/image-resizer": "^3.12.1",
     "@ionic-native/in-app-browser": "^3.11.0",
     "@ionic-native/insomnia": "^3.12.1",
     "@ionic-native/splash-screen": "3.10.2",
