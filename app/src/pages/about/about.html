@@ -1,0 +1,22 @@
+<ion-header id="about-header">
+    <ion-navbar color="primary">
+        <ion-title>About</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content id="about-content">
+    <img src="assets/images/logo.png" (tap)="open_developer_site()">
+    <h6>Hi there!</h6>
+    <p>
+        My name is Tom Aalbers. I am a reasonable experienced developer (full stack) in the Ionic, Aurelia and .NET frameworks. I
+        work with these frameworks every day.
+    </p>
+    <br>
+    <p>
+        A long time ago I started the <code>Ionic 2 Examples</code> repo which into, I added a few examples on how to work
+        with the Ionic Framework. I received a lot of positive feedback and requests after that. So that is why I started
+        this ionic example app to show some examples on how to use the framework. If you want to get in touch you can head
+        over to <a (tap)="open_developer_site()">my website</a> and contact me through any of the options there. If you can't
+        find your example, head over to <a (tap)="open_github_page()">the github page</a> and create an issue to request
+        it! I will try to add them when I can!
+    </p>
+</ion-content>

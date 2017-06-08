@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AppProvider } from '../application/providers/AppProvider';
+import { AboutPage } from '../pages/about/about';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -19,7 +20,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
         CameraPage,
         ImagePickerPage,
         UploadExamplePage,
-        ProgressBarComponent,
+        AboutPage,
+        ProgressBarComponent
     ],
     imports: [
         BrowserModule,
@@ -32,7 +34,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
         TabsPage,
         CameraPage,
         ImagePickerPage,
-        UploadExamplePage
+        UploadExamplePage,
+        AboutPage
     ],
     // We are using the custom written prodvider
     // here instead of the array that is normally
