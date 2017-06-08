@@ -8,6 +8,11 @@ import { AppConfiguration } from '../../application/AppConfiguration';
 })
 export class HomePage {
 
+    /**
+     * The version of the app
+     */
+    public app_version: string = AppConfiguration.app_version;
+
     constructor(
         private in_app_browser: InAppBrowser
     ) { }
