@@ -1,0 +1,47 @@
+<ion-header id="upload-example-header">
+    <ion-navbar color="primary">
+        <ion-title>Upload Example</ion-title>
+        <ion-buttons right *ngIf="images.length > 0" (tap)="start_upload()">
+            <button ion-button [disabled]="is_uploading">
+                Upload
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content id="upload-example-content">
+    <p *ngIf="!is_uploading">
+        This page displays an example on how to use the transfer plugin. Note: This example will not work in the browser. You have
+        to deploy the app on a device to see it how it works.
+    </p>
+    <div *ngIf="is_uploading" class="upload-info">
+        <span>Image {{ current + 1 }} of {{ total }}</span>
+        <progress-bar [progress]="progress"></progress-bar>
+    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button color="secondary" (tap)="open_camera()" [disabled]="is_uploading">
+                    <ion-icon name="camera"></ion-icon>
+                    Camera
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button color="secondary" (tap)="open_albums()" [disabled]="is_uploading">
+                    <ion-icon name="image"></ion-icon>
+                    Albums
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="images.length > 0">
+        <ion-row>
+            <ion-col *ngFor="let image of images" class="image-col" col-3>
+                <button [disabled]="is_uploading" ion-button (tap)="delete(image)">
+                    <ion-icon name="close"></ion-icon>
+                </button>                
+                <ion-icon class="check" *ngIf="image.uploaded" name="checkmark"></ion-icon>
+                <div class="image" [class.uploaded]="image.uploaded" [ngStyle]="{'background-image': 'url(' + image.thumb  + ')'}"></div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

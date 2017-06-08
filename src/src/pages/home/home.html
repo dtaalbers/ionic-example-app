@@ -1,0 +1,25 @@
+<ion-header id="home-header">
+    <ion-navbar color="primary">
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content id="home-content">
+    <img src="assets/images/logo.png"  (tap)="open_develop_site()">
+    <h6>Hi there!</h6>
+    <p>
+        Welcome to the Ionic Example App. Here you can see different examples on how to use the Ionic Framework.
+    </p>
+    <h6>About the app</h6>
+    <p>
+        These examples are made in my spare time and the way I think they could be implemented. My way is not perfect and I am always
+        willing to learn. So if you have any remarks or improvements, don't hesitate to create an issue on the
+        <a (tap)="open_github_page()">github page</a>.
+    </p>
+    <h6>Api and data storage</h6>
+    <p>
+        With some cordova plugins it is required to connect the app to an external resource, for example the upload part of the transfer
+        plugin. For that I will create an API (written in the C# dotnet core framework). This API will run on the following endpoint
+        <a href="https://api.dtaalbers.com/ionic-example-app">https://api.dtaalbers.com/ionic-example-app</a>.
+        This api will recieve and store and data you send to it. So be aware of that. Docs will be available when it goes live.
+    </p>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header id="image-picker-header">
+    <ion-navbar color="primary">
+        <ion-title>Image Picker Example</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content id="image-picker-content">
+    <p>
+        This page displays an example on how to use the image picker plugin. It will display a fixed collection
+        of images when developing in the browser and the selected images when using a device. Check <code>src/logic/mocks/ImagePicker.ts</code>
+        if you want to change the images.
+    </p>
+    <button ion-button color="secondary" (tap)="open_albums()">Select pictures from albums</button>
+    <ion-grid *ngIf="images.length > 0">
+        <ion-row>
+            <ion-col *ngFor="let image of images" col-3>
+                <div class="image" [ngStyle]="{'background-image': 'url(' + image  + ')'}"></div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

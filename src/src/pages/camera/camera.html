@@ -1,0 +1,14 @@
+<ion-header id="camera-header">
+    <ion-navbar color="primary">
+        <ion-title>Camera Example</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content id="camera-content">
+    <p>
+        This page displays an example on how to use the camera plugin. It will display a fixed image when developing in the browser
+        and the taken image when using a device. Check <code>src/logic/mocks/CameraMock.ts</code> if you want to
+        change the image.
+    </p>
+    <button ion-button color="secondary" (tap)="open_camera()">Take a picture</button>
+    <div *ngIf="image" class="image" [ngStyle]="{'background-image': 'url(' + image  + ')'}"></div>
+</ion-content>

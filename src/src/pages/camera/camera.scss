@@ -1,0 +1,21 @@
+page-camera {
+    #camera-content {
+        .scroll-content {
+            padding: 15px;
+        }
+
+        .image {
+            width: 90vw;
+            height: 200px;                  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;   
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}

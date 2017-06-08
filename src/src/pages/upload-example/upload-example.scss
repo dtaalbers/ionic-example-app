@@ -1,0 +1,54 @@
+upload-example {
+    #upload-example-content {
+        .scroll-content {
+            padding: 15px;
+        }
+
+        .upload-info {
+            span {
+                margin-left: 10px;
+            }
+        }
+        
+        .image {
+            height: 100px;                  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .uploaded {
+            opacity: .2;
+        }
+
+        .check {
+            position: absolute;
+            font-size: 30pt;
+            font-weight: bold;
+            left: calc(50% - 15px);
+            top: calc(50% - 10px);
+        }
+
+        .image-col {
+            button {
+                width: 100% !important;
+                height: 20px !important;
+                margin: 0;
+
+                ion-icon {
+                    margin: 0;
+                }
+            }
+        }
+
+        button {
+            width: 100% !important; 
+            font-size: 12pt;
+            border-radius: 0;
+
+            ion-icon {
+                margin-right: 10px;
+            }
+        }
+    }
+}
