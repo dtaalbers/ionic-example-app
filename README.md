@@ -4,7 +4,7 @@
 
 Hi there! Here you can find the Ionic Example App. This app contains different examples on how to use the Ionic Framework. If you can't find your example, don't hesitate to create a issue and request an example!
 
-Next to the app I've also open sourced the code of the api that is running for the Ionic Example App. The endpoint for that api is `https://api.dtaalbers.com/ionic-example-app/`. Add `ping` to the url to ping the api so you can check if it is running.
+Next to the app I've also open sourced the code of the api (.NET Core `dotnet core`) that is running for the Ionic Example App. The endpoint for that api is `https://api.dtaalbers.com/ionic-example-app/`. Add `ping` to the url to ping the api so you can check if it is running.
 
 If you have questions and/or remarks, please make an issue and we can discuss it! 
 
