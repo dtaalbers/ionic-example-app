@@ -1,15 +1,21 @@
-# Ionic 2 Examples
+## Ionic Example App
 
-A collection of ionic 2 examples. Usage of plugins etc. 
+#### # Intro
 
-If you want to request an example you can create a issue for it. I do this in my free time so I can not promise to do every request.
+Hi there! Here you can find the Ionic Example App. This app contains different examples on how to use the Ionic Framework. If you can't find your example, don't hesitate to create a issue and request an example!
 
-See the README files in each folder for more information per example.
+Next to the app I've also open sourced the code of the api that is running for the Ionic Example App. The endpoint for that api is `https://api.dtaalbers.com/ionic-example-app/`. Add `ping` to the url to ping the api so you can check if it is running.
 
-It got to my attention that the examples aren't up-to-date. I'll update as soon as I find the time to do it.
+If you have questions and/or remarks, please make an issue and we can discuss it! 
 
-Make sure you have the image picker plugin installed. You can find the native ionic plugin [here](http://ionicframework.com/docs/v2/native/image-picker/).
+#### # Things you need to know
+* Remember all the data processed by the app and api are stored on my server!
+* Licensed under MIT
 
-Thanks for the heads up [Rodrigo Rubio](https://github.com/rrubio?tab=activity)
+#### # Getting started
 
-
+1. Fork the repo!
+2. Clone the app to your HD.
+3. Run the command `npm install` from the root to install the node modules
+4. Run the command `ionic state reset` to install the platforms and plugins
+5. Run the command `ionic serve` to open the app in the browser.
