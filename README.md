@@ -1,5 +1,5 @@
 ## Ionic Example App
-
+## Note: state has been removed and ionic recommends using Cordova as of now. This example won't compile anymore.
 #### # Intro
 
 Hi there! Here you can find the Ionic Example App. This app contains different examples on how to use the Ionic Framework. If you can't find your example, don't hesitate to create a issue and request an example!
